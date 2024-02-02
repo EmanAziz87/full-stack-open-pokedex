@@ -10,7 +10,7 @@ on:
 
 jobs:
   simple_deployment_pipeline:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -31,7 +31,7 @@ jobs:
           wait-on: http://localhost:5000
   tag_release:
     needs: [simple_deployment_pipeline]
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Trigger deployment
         if: ${{ github.event_name == 'push' }}
